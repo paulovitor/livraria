@@ -9,3 +9,4 @@ target/
 .project
 .settings/
 classes/
+.tern-project

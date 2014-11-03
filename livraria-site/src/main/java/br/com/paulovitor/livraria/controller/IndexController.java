@@ -1,4 +1,4 @@
-package br.com.caelum.vraptor.controller;
+package br.com.paulovitor.livraria.controller;
 
 import javax.inject.Inject;
 
