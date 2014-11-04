@@ -10,6 +10,7 @@
 	<!-- <c:url value="/livros/salva"/> -->
 	<!-- ${pageContext.request.contextPath}/livros/salva -->
 	<form action="${linkTo[LivrosController].salva}" method="post">
+		<input type="hidden" name="livro.id" value="${livro.id}" />
 		<h2>Formulário de cadastro de livros</h2>
 		<ul>
 			<li>Título: <br /> <input type="text" name="livro.titulo"

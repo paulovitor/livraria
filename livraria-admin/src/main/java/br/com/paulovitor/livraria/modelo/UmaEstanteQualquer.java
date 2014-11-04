@@ -3,12 +3,14 @@ package br.com.paulovitor.livraria.modelo;
 import java.util.Arrays;
 import java.util.List;
 
+import javax.enterprise.inject.Alternative;
+
+@Alternative
 public class UmaEstanteQualquer implements Estante {
 
 	@Override
 	public void guarda(Livro livro) {
 		// TODO Auto-generated method stub
-
 	}
 
 	@Override
