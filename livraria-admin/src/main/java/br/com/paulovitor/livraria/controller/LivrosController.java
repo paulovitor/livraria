@@ -41,7 +41,11 @@ public class LivrosController {
 
 	public void edita(String isbn, Result result) {
 		Livro livroEncontrado = estante.buscaPorIsbn(isbn);
-		result.include(livroEncontrado);
-		result.of(this).formulario();
+		if (livroEncontrado == null) {
+			result.notFound();
+		} else {
+			result.include(livroEncontrado);
+			result.of(this).formulario();
+		}
 	}
 }
