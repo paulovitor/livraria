@@ -7,6 +7,11 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
+
+import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
 public class Livro {
@@ -14,12 +19,20 @@ public class Livro {
 	@Id
 	@GeneratedValue
 	private Long id;
+
+	@NotEmpty(message = "titulo {campo.obrigatorio}")
 	private String titulo;
 	private String descricao;
 
+	@NotEmpty(message = "isbn {campo.obrigatorio}")
 	@Column(unique = true)
 	private String isbn;
+
+	@NotNull(message = "preço {campo.obrigatorio}")
+	@DecimalMin("0.0")
 	private BigDecimal preco;
+
+	@Past
 	private Calendar dataPublicacao;
 
 	public Long getId() {

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -7,8 +8,11 @@
 <title>Livraria</title>
 </head>
 <body>
-	<!-- <c:url value="/livros/salva"/> -->
-	<!-- ${pageContext.request.contextPath}/livros/salva -->
+	<ul class="errors">
+		<c:forEach items="${errors}" var="error">
+			<li>${error.category}: ${error.message}</li>
+		</c:forEach>
+	</ul>
 	<form action="${linkTo[LivrosController].salva}" method="post">
 		<input type="hidden" name="livro.id" value="${livro.id}" />
 		<h2>Formulário de cadastro de livros</h2>
