@@ -5,12 +5,12 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Livraria</title>
+<title>livraria-admin</title>
 </head>
 <body>
 	<ul class="errors">
 		<c:forEach items="${errors}" var="error">
-			<li>${error.category}: ${error.message}</li>
+			<li>${error.category}:${error.message}</li>
 		</c:forEach>
 	</ul>
 	<form action="${linkTo[LivrosController].salva}" method="post">

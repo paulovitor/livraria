@@ -12,4 +12,6 @@ public interface LivroDAO {
 
 	Livro buscaPorIsbn(String isbn);
 
+	Livro buscaLivroPorTitulo(String titulo);
+
 }

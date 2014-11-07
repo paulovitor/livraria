@@ -31,4 +31,10 @@ public class UmaEstanteQualquer implements Estante {
 		return todosOsLivros().get(0);
 	}
 
+	@Override
+	public boolean existeLivroComTitulo(String titulo) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 }

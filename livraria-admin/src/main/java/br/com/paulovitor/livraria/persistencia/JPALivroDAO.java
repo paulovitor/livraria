@@ -9,7 +9,8 @@ import javax.transaction.Transactional;
 
 import br.com.paulovitor.livraria.modelo.Livro;
 
-@Transactional // Gerenciando pelo Wildfly
+@Transactional
+// Gerenciando pelo Wildfly
 public class JPALivroDAO implements LivroDAO {
 
 	private final EntityManager manager;
@@ -47,6 +48,19 @@ public class JPALivroDAO implements LivroDAO {
 			return this.manager
 					.createQuery("select l from Livro l where l.isbn = :isbn",
 							Livro.class).setParameter("isbn", isbn)
+					.getSingleResult();
+		} catch (NoResultException e) {
+			return null;
+		}
+	}
+
+	@Override
+	public Livro buscaLivroPorTitulo(String titulo) {
+		try {
+			return this.manager
+					.createQuery(
+							"select l from Livro l where l.titulo = :titulo",
+							Livro.class).setParameter("titulo", titulo)
 					.getSingleResult();
 		} catch (NoResultException e) {
 			return null;

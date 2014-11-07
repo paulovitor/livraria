@@ -5,6 +5,9 @@ import java.util.List;
 import javax.inject.Inject;
 
 import br.com.caelum.vraptor.Controller;
+import br.com.caelum.vraptor.Get;
+import br.com.caelum.vraptor.Path;
+import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.validator.Validator;
 import br.com.paulovitor.livraria.modelo.Estante;
@@ -30,9 +33,17 @@ public class LivrosController {
 	LivrosController() {
 	}
 
+	@Get
+	@Path(value = "livros/formulario", priority = Path.HIGH)
 	public void formulario() {
 	}
 
+	@Get("/livros")
+	public List<Livro> lista() {
+		return estante.todosOsLivros();
+	}
+
+	@Post("/livros")
 	public void salva(Livro livro) {
 		validator.validate(livro);
 		validator.onErrorRedirectTo(this).formulario();
@@ -43,10 +54,8 @@ public class LivrosController {
 		result.redirectTo(this).lista();
 	}
 
-	public List<Livro> lista() {
-		return estante.todosOsLivros();
-	}
-
+	@Get
+	@Path(value = "/livros/{isbn}", priority = Path.LOW)
 	public void edita(String isbn) {
 		Livro livroEncontrado = estante.buscaPorIsbn(isbn);
 		if (livroEncontrado == null) {

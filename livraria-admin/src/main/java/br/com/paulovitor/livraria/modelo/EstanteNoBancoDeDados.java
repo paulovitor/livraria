@@ -38,4 +38,9 @@ public class EstanteNoBancoDeDados implements Estante {
 		return this.dao.buscaPorIsbn(isbn);
 	}
 
+	@Override
+	public boolean existeLivroComTitulo(String titulo) {
+		return this.dao.buscaLivroPorTitulo(titulo) != null;
+	}
+
 }

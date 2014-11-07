@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Livraria</title>
+<title>livraria-admin</title>
 </head>
 <body>
 Erro 404: Página não encontrada!
