@@ -13,10 +13,12 @@
 			<li>${error.category}:${error.message}</li>
 		</c:forEach>
 	</ul>
-	<form action="${linkTo[LivrosController].salva}" method="post">
+	<form action="${linkTo[LivrosController].salva}" method="post"
+		enctype="multipart/form-data">
 		<input type="hidden" name="livro.id" value="${livro.id}" />
 		<h2>Formulário de cadastro de livros</h2>
 		<ul>
+			<li>Capa: <input type="file" name="capa" /></li>
 			<li>Título: <br /> <input type="text" name="livro.titulo"
 				value="${livro.titulo}" /></li>
 			<li>Descrição: <br /> <textarea name="livro.descricao">${livro.descricao}</textarea></li>

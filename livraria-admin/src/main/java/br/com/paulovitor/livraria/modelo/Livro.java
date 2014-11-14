@@ -1,6 +1,7 @@
 package br.com.paulovitor.livraria.modelo;
 
 import java.math.BigDecimal;
+import java.net.URI;
 import java.util.Calendar;
 
 import javax.persistence.Column;
@@ -34,6 +35,8 @@ public class Livro {
 
 	@Past
 	private Calendar dataPublicacao;
+
+	private String capa;
 
 	public Long getId() {
 		return id;
@@ -81,6 +84,16 @@ public class Livro {
 
 	public void setDataPublicacao(Calendar dataPublicacao) {
 		this.dataPublicacao = dataPublicacao;
+	}
+
+	public URI getCapa() {
+		if (capa == null)
+			return null;
+		return URI.create(capa);
+	}
+
+	public void setCapa(URI capa) {
+		this.capa = capa == null ? null : capa.toString();
 	}
 
 }
