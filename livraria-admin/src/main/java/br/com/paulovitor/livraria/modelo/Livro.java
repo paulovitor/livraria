@@ -1,14 +1,13 @@
 package br.com.paulovitor.livraria.modelo;
 
-import java.math.BigDecimal;
 import java.net.URI;
 import java.util.Calendar;
 
 import javax.persistence.Column;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 
@@ -29,9 +28,9 @@ public class Livro {
 	@Column(unique = true)
 	private String isbn;
 
+	@Embedded
 	@NotNull(message = "preço {campo.obrigatorio}")
-	@DecimalMin("0.0")
-	private BigDecimal preco;
+	private Dinheiro preco;
 
 	@Past
 	private Calendar dataPublicacao;
@@ -70,11 +69,11 @@ public class Livro {
 		this.isbn = isbn;
 	}
 
-	public BigDecimal getPreco() {
+	public Dinheiro getPreco() {
 		return preco;
 	}
 
-	public void setPreco(BigDecimal preco) {
+	public void setPreco(Dinheiro preco) {
 		this.preco = preco;
 	}
 
