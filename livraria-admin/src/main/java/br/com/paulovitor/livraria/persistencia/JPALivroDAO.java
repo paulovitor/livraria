@@ -67,4 +67,10 @@ public class JPALivroDAO implements LivroDAO {
 		}
 	}
 
+	@Override
+	public void remove(Livro livro) {
+		this.manager.remove(this.manager.getReference(Livro.class,
+				livro.getId()));
+	}
+
 }

@@ -12,4 +12,6 @@ public interface Estante {
 
 	boolean existeLivroComTitulo(String titulo);
 
+	void retira(Livro livro);
+
 }

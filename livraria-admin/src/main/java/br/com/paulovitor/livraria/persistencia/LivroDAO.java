@@ -14,4 +14,6 @@ public interface LivroDAO {
 
 	Livro buscaLivroPorTitulo(String titulo);
 
+	void remove(Livro livro);
+
 }

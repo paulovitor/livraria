@@ -37,4 +37,9 @@ public class UmaEstanteQualquer implements Estante {
 		return false;
 	}
 
+	@Override
+	public void retira(Livro livro) {
+		// TODO Auto-generated method stub
+	}
+
 }

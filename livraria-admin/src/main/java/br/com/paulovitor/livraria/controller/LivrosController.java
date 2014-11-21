@@ -9,6 +9,7 @@ import javax.inject.Inject;
 import javax.transaction.Transactional;
 
 import br.com.caelum.vraptor.Controller;
+import br.com.caelum.vraptor.Delete;
 import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Post;
@@ -100,6 +101,15 @@ public class LivrosController {
 		}
 
 		return new ArquivoDownload(capa);
+	}
+	
+	@Delete("/livro/{isbn}")
+	public void remove(String isbn) {
+		Livro livro = estante.buscaPorIsbn(isbn);
+		
+		estante.retira(livro);
+		
+		result.nothing();
 	}
 
 }

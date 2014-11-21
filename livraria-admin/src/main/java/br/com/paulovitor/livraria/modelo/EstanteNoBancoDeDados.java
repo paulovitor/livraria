@@ -43,4 +43,9 @@ public class EstanteNoBancoDeDados implements Estante {
 		return this.dao.buscaLivroPorTitulo(titulo) != null;
 	}
 
+	@Override
+	public void retira(Livro livro) {
+		this.dao.remove(livro);
+	}
+
 }
